@@ -38,15 +38,20 @@ body {
     margin: 0;
     display: flex;
     justify-content: flex-end;
-    padding-right: 8px;
+    padding-right: 16px;
     padding-top: 16px;
 
 }
 
 button {
+    background-color: rgb(3, 205, 255);
     width: 100px;
     font-size: 32px;
     border-radius: 8px;
+}
+
+.operatorButton {
+    background-color: orange;
 }
 
 .zeroButton {

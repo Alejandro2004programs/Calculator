@@ -40,3 +40,13 @@ function operate(a, b, operator) {
     }
 }
 
+
+const buttonsNodeList = document.querySelectorAll("button");
+let display = document.querySelector(".display");
+
+buttonsNodeList.forEach((button) => {
+    button.addEventListener("click", function(e) {
+        console.log(e.target.textContent);
+        display.textContent = `${e.target.textContent}`;
+    });
+});
