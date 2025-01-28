@@ -17,6 +17,10 @@ function divide(a,b) {
     return a / b;
 }
 
+function expontent(a,b) {
+    return a ** b;
+}
+
 let firstNumber;
 let secondNumber;
 let operator;
@@ -31,6 +35,8 @@ function operate(a, b, operator) {
             return multiply(a,b);
         case "/":
             return divide(a,b);
+        case "^":
+            return expontent(a,b);
     }
 }
 
