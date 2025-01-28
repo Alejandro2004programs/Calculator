@@ -25,12 +25,22 @@ body {
     margin-bottom: 8px;
 }
 
-.display {
+.displayRow {
     height: 150px;
     width: 440px;
     border-radius: 8px;
     border: 2px solid black;
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
+}
+
+.display {
+    font-size: 64px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 8px;
+    padding-top: 16px;
+
 }
 
 button {
@@ -42,3 +52,7 @@ button {
 .zeroButton {
     width: 208px;
 }
+
+/* * {
+    border: 2px solid red;
+} */
