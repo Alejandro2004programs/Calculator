@@ -1,5 +1,5 @@
 function add(a, b) {
-    return a + b;
+    return Number(a) + Number(b);
 }
 
 function subtract(a,b) {
@@ -17,13 +17,9 @@ function divide(a,b) {
     return a / b;
 }
 
-function expontent(a,b) {
+function exponent(a,b) {
     return a ** b;
 }
-
-let firstNumber;
-let secondNumber;
-let operator;
 
 function operate(a, b, operator) {
     switch(operator) {
@@ -36,17 +32,80 @@ function operate(a, b, operator) {
         case "/":
             return divide(a,b);
         case "^":
-            return expontent(a,b);
+            return exponent(a,b);
     }
 }
 
+function resetVariables() {
+    firstNumber = null;
+    secondNumber = null;
+    operator = null;
+    result = null; 
+}
 
-const buttonsNodeList = document.querySelectorAll("button");
+
+let firstNumber = null;
+let secondNumber = null;
+let operator = null;
+let result = null;
 let display = document.querySelector(".display");
 
-buttonsNodeList.forEach((button) => {
+const numberButtons = document.querySelectorAll(".numberButton");
+numberButtons.forEach((button) => {
     button.addEventListener("click", function(e) {
-        console.log(e.target.textContent);
-        display.textContent = `${e.target.textContent}`;
+        let buttonSelected = e.target.textContent;
+        if(firstNumber == null && operator == null) {
+            firstNumber = buttonSelected;
+            display.textContent = `${firstNumber}`;
+        }
+        else if (firstNumber != null &&  operator == null) {
+            if(firstNumber.length <= 10) {
+                firstNumber = firstNumber + buttonSelected;
+                display.textContent = `${firstNumber}`;
+            }
+        }
+        else if(secondNumber == null) {
+            secondNumber = buttonSelected;
+            display.textContent = `${secondNumber}`;
+        }
+        else {
+            if(secondNumber.length <= 10) {
+                secondNumber = secondNumber + buttonSelected;
+                display.textContent = `${secondNumber}`;
+            }
+        }
     });
 });
+
+const operatorButtons = document.querySelectorAll(".operatorButton");
+operatorButtons.forEach((button) => {
+    button.addEventListener("click", function(e) {
+        let buttonSelected = e.target.textContent;
+        if(firstNumber != null && secondNumber == null) {
+            operator = buttonSelected;
+        }
+        else {
+            resetVariables()
+        }
+    });
+});
+
+const resultButton = document.querySelector(".resultButton")
+resultButton.addEventListener("click", function(e) {
+    if(firstNumber != null && secondNumber != null && operator != null) {
+        result = operate(firstNumber, secondNumber, operator);
+        display.textContent = result;
+        firstNumber = result;
+        secondNumber = null;
+        operator = null;
+    }
+
+});
+
+const resetButton = document.querySelector(".resetButton");
+resetButton.addEventListener("click", function(e) {
+    resetVariables();
+    display.textContent = "";
+});
+
+
