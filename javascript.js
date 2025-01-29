@@ -81,6 +81,10 @@ const operatorButtons = document.querySelectorAll(".operatorButton");
 operatorButtons.forEach((button) => {
     button.addEventListener("click", function(e) {
         let buttonSelected = e.target.textContent;
+        if(buttonSelected == "+/-") {
+            firstNumber = firstNumber * (-1);
+            display.textContent = firstNumber;
+        }
         if(firstNumber != null && secondNumber == null) {
             operator = buttonSelected;
         }
