@@ -13,9 +13,9 @@ body {
     align-items: center;
     height: 500px;
     width: 400px;
-    background-color: #eeeeee;
+    background-color: black;
     border-radius: 8px;
-    border: 2px solid black;
+    border: 8px solid black;
 }
 
 .row {
@@ -39,19 +39,30 @@ body {
     display: flex;
     justify-content: flex-end;
     padding-right: 16px;
-    padding-top: 16px;
+    background-color: #eeeeee7d;
+    height: 80px;
+}
 
+.displayCalculation {
+    padding-bottom: 16px;
+    background-color: #eeeeee7d;
+    height: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 16px;
+    font-size: 32px;
 }
 
 button {
-    background-color: rgb(3, 205, 255);
+    background-color: rgb(39, 10, 169);
     width: 90px;
     font-size: 32px;
     border-radius: 8px;
 }
 
 .operatorButton, .resultButton, .resetButton {
-    background-color: orange;
+    background-color: rgb(255, 137, 3);
 }
 
 .zeroButton {

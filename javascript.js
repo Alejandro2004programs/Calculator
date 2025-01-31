@@ -49,6 +49,7 @@ let secondNumber = null;
 let operator = null;
 let result = null;
 let display = document.querySelector(".display");
+let displayCalculation = document.querySelector(".displayCalculation");
 
 const numberButtons = document.querySelectorAll(".numberButton");
 numberButtons.forEach((button) => {
@@ -57,21 +58,27 @@ numberButtons.forEach((button) => {
         if(firstNumber == null && operator == null) {
             firstNumber = buttonSelected;
             display.textContent = `${firstNumber}`;
+            displayCalculation.textContent = `${firstNumber}`
         }
         else if (firstNumber != null &&  operator == null) {
             if(firstNumber.length <= 10) {
                 firstNumber = firstNumber + buttonSelected;
                 display.textContent = `${firstNumber}`;
+                displayCalculation.textContent = `${firstNumber}`
             }
         }
         else if(secondNumber == null) {
             secondNumber = buttonSelected;
-            display.textContent = `${secondNumber}`;
+            display.textContent += `${secondNumber}`;
+            displayCalculation.textContent += `${secondNumber}`;
+
         }
         else {
             if(secondNumber.length <= 10) {
                 secondNumber = secondNumber + buttonSelected;
                 display.textContent = `${secondNumber}`;
+                displayCalculation.textContent = `${secondNumber}`;
+
             }
         }
     });
@@ -87,10 +94,10 @@ operatorButtons.forEach((button) => {
         }
         if(firstNumber != null && secondNumber == null) {
             operator = buttonSelected;
+            display.textContent = `${firstNumber}` + operator;
+            displayCalculation.textContent = `${firstNumber}` + operator;
         }
-        else {
-            resetVariables()
-        }
+
     });
 });
 
@@ -99,6 +106,7 @@ resultButton.addEventListener("click", function(e) {
     if(firstNumber != null && secondNumber != null && operator != null) {
         result = operate(firstNumber, secondNumber, operator);
         display.textContent = result;
+        displayCalculation.textContent += `=`;
         firstNumber = result;
         secondNumber = null;
         operator = null;
@@ -110,6 +118,7 @@ const resetButton = document.querySelector(".resetButton");
 resetButton.addEventListener("click", function(e) {
     resetVariables();
     display.textContent = "";
+    displayCalculation.textContent = "";
 });
 
 
