@@ -76,8 +76,8 @@ numberButtons.forEach((button) => {
         else {
             if(secondNumber.length <= 10) {
                 secondNumber = secondNumber + buttonSelected;
-                display.textContent = `${secondNumber}`;
-                displayCalculation.textContent = `${secondNumber}`;
+                display.textContent = `${firstNumber + operator + secondNumber}`;
+                displayCalculation.textContent = `${firstNumber + operator + secondNumber}`;
 
             }
         }
