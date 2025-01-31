@@ -92,7 +92,7 @@ operatorButtons.forEach((button) => {
             firstNumber = firstNumber * (-1);
             display.textContent = firstNumber;
         }
-        if(firstNumber != null && secondNumber == null) {
+        else if(firstNumber != null && secondNumber == null ) {
             operator = buttonSelected;
             display.textContent = `${firstNumber}` + operator;
             displayCalculation.textContent = `${firstNumber}` + operator;
