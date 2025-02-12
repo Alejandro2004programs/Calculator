@@ -59,6 +59,7 @@ button {
     width: 90px;
     font-size: 32px;
     border-radius: 8px;
+    border: none;
 }
 
 .operatorButton, .resultButton, .resetButton {
@@ -69,6 +70,14 @@ button {
     width: 188px;
 }
 
-/* * {
-    border: 2px solid red;
-} */
+/* CSS Pseudo Classes */
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    
+}
+
+button:active {
+    opacity: 0.6;
+}
