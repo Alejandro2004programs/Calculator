@@ -61,11 +61,10 @@ numberButtons.forEach((button) => {
             displayCalculation.textContent = `${firstNumber}`
         }
         else if (firstNumber != null &&  operator == null) {
-            if(firstNumber.length <= 10) {
-                firstNumber = firstNumber + buttonSelected;
-                display.textContent = `${firstNumber}`;
-                displayCalculation.textContent = `${firstNumber}`
-            }
+            firstNumber = firstNumber + buttonSelected;
+            display.textContent = `${firstNumber}`;
+            displayCalculation.textContent = `${firstNumber}`
+            
         }
         else if(secondNumber == null) {
             secondNumber = buttonSelected;
@@ -74,12 +73,11 @@ numberButtons.forEach((button) => {
 
         }
         else {
-            if(secondNumber.length <= 10) {
-                secondNumber = secondNumber + buttonSelected;
-                display.textContent = `${firstNumber + operator + secondNumber}`;
-                displayCalculation.textContent = `${firstNumber + operator + secondNumber}`;
+            secondNumber = secondNumber + buttonSelected;
+            display.textContent = `${firstNumber + operator + secondNumber}`;
+            displayCalculation.textContent = `${firstNumber + operator + secondNumber}`;
 
-            }
+            
         }
     });
 });
